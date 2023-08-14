@@ -1,0 +1,1444 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> program
+Rule 1     program -> statement
+Rule 2     program -> program statement
+Rule 3     program -> expression
+Rule 4     program -> program expression
+Rule 5     program -> while_statement
+Rule 6     program -> program while_statement
+Rule 7     statement -> INT ID EQUAL expression
+Rule 8     statement -> STR ID EQUAL expression
+Rule 9     statement -> ID EQUAL expression
+Rule 10    term -> expression
+Rule 11    term -> statement
+Rule 12    term -> INT
+Rule 13    term -> STR
+Rule 14    expression -> expression PLUS term
+Rule 15    expression -> expression PLUS expression
+Rule 16    expression -> expression MINUS term
+Rule 17    expression -> expression MINUS expression
+Rule 18    expression -> LPAREN expression RPAREN
+Rule 19    expression -> LPAREN statement RPAREN
+Rule 20    expression_while -> LPAREN expression RPAREN
+Rule 21    expression_while -> LPAREN statement RPAREN
+Rule 22    expression_while -> LPAREN program RPAREN
+Rule 23    while_statement -> WHILE expression EQUALS expression
+Rule 24    while_statement -> WHILE expression EQUALS expression expression_while
+Rule 25    while_statement -> WHILE expression NOTEQUAL expression
+Rule 26    while_statement -> WHILE expression NOTEQUAL expression expression_while
+Rule 27    expression -> ID
+Rule 28    expression -> NUMBER
+Rule 29    expression -> STRING
+Rule 30    statement -> RETURN expression
+Rule 31    statement -> RETURN statement
+Rule 32    statement -> COMENT
+
+Terminals, with rules where they appear
+
+COMENT               : 32
+EQUAL                : 7 8 9
+EQUALS               : 23 24
+ID                   : 7 8 9 27
+INT                  : 7 12
+LPAREN               : 18 19 20 21 22
+MINUS                : 16 17
+NOTEQUAL             : 25 26
+NUMBER               : 28
+PLUS                 : 14 15
+RETURN               : 30 31
+RPAREN               : 18 19 20 21 22
+STR                  : 8 13
+STRING               : 29
+WHILE                : 23 24 25 26
+error                : 
+
+Nonterminals, with rules where they appear
+
+expression           : 3 4 7 8 9 10 14 15 15 16 17 17 18 20 23 23 24 24 25 25 26 26 30
+expression_while     : 24 26
+program              : 2 4 6 22 0
+statement            : 1 2 11 19 21 31
+term                 : 14 16
+while_statement      : 5 6
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . program
+    (1) program -> . statement
+    (2) program -> . program statement
+    (3) program -> . expression
+    (4) program -> . program expression
+    (5) program -> . while_statement
+    (6) program -> . program while_statement
+    (7) statement -> . INT ID EQUAL expression
+    (8) statement -> . STR ID EQUAL expression
+    (9) statement -> . ID EQUAL expression
+    (30) statement -> . RETURN expression
+    (31) statement -> . RETURN statement
+    (32) statement -> . COMENT
+    (14) expression -> . expression PLUS term
+    (15) expression -> . expression PLUS expression
+    (16) expression -> . expression MINUS term
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . LPAREN expression RPAREN
+    (19) expression -> . LPAREN statement RPAREN
+    (27) expression -> . ID
+    (28) expression -> . NUMBER
+    (29) expression -> . STRING
+    (23) while_statement -> . WHILE expression EQUALS expression
+    (24) while_statement -> . WHILE expression EQUALS expression expression_while
+    (25) while_statement -> . WHILE expression NOTEQUAL expression
+    (26) while_statement -> . WHILE expression NOTEQUAL expression expression_while
+
+    INT             shift and go to state 5
+    STR             shift and go to state 7
+    ID              shift and go to state 6
+    RETURN          shift and go to state 8
+    COMENT          shift and go to state 9
+    LPAREN          shift and go to state 10
+    NUMBER          shift and go to state 11
+    STRING          shift and go to state 12
+    WHILE           shift and go to state 13
+
+    program                        shift and go to state 1
+    statement                      shift and go to state 2
+    expression                     shift and go to state 3
+    while_statement                shift and go to state 4
+
+state 1
+
+    (0) S' -> program .
+    (2) program -> program . statement
+    (4) program -> program . expression
+    (6) program -> program . while_statement
+    (7) statement -> . INT ID EQUAL expression
+    (8) statement -> . STR ID EQUAL expression
+    (9) statement -> . ID EQUAL expression
+    (30) statement -> . RETURN expression
+    (31) statement -> . RETURN statement
+    (32) statement -> . COMENT
+    (14) expression -> . expression PLUS term
+    (15) expression -> . expression PLUS expression
+    (16) expression -> . expression MINUS term
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . LPAREN expression RPAREN
+    (19) expression -> . LPAREN statement RPAREN
+    (27) expression -> . ID
+    (28) expression -> . NUMBER
+    (29) expression -> . STRING
+    (23) while_statement -> . WHILE expression EQUALS expression
+    (24) while_statement -> . WHILE expression EQUALS expression expression_while
+    (25) while_statement -> . WHILE expression NOTEQUAL expression
+    (26) while_statement -> . WHILE expression NOTEQUAL expression expression_while
+
+    INT             shift and go to state 5
+    STR             shift and go to state 7
+    ID              shift and go to state 6
+    RETURN          shift and go to state 8
+    COMENT          shift and go to state 9
+    LPAREN          shift and go to state 10
+    NUMBER          shift and go to state 11
+    STRING          shift and go to state 12
+    WHILE           shift and go to state 13
+
+    statement                      shift and go to state 14
+    expression                     shift and go to state 15
+    while_statement                shift and go to state 16
+
+state 2
+
+    (1) program -> statement .
+
+    INT             reduce using rule 1 (program -> statement .)
+    STR             reduce using rule 1 (program -> statement .)
+    ID              reduce using rule 1 (program -> statement .)
+    RETURN          reduce using rule 1 (program -> statement .)
+    COMENT          reduce using rule 1 (program -> statement .)
+    LPAREN          reduce using rule 1 (program -> statement .)
+    NUMBER          reduce using rule 1 (program -> statement .)
+    STRING          reduce using rule 1 (program -> statement .)
+    WHILE           reduce using rule 1 (program -> statement .)
+    $end            reduce using rule 1 (program -> statement .)
+
+
+state 3
+
+    (3) program -> expression .
+    (14) expression -> expression . PLUS term
+    (15) expression -> expression . PLUS expression
+    (16) expression -> expression . MINUS term
+    (17) expression -> expression . MINUS expression
+
+    INT             reduce using rule 3 (program -> expression .)
+    STR             reduce using rule 3 (program -> expression .)
+    ID              reduce using rule 3 (program -> expression .)
+    RETURN          reduce using rule 3 (program -> expression .)
+    COMENT          reduce using rule 3 (program -> expression .)
+    LPAREN          reduce using rule 3 (program -> expression .)
+    NUMBER          reduce using rule 3 (program -> expression .)
+    STRING          reduce using rule 3 (program -> expression .)
+    WHILE           reduce using rule 3 (program -> expression .)
+    $end            reduce using rule 3 (program -> expression .)
+    PLUS            shift and go to state 17
+    MINUS           shift and go to state 18
+
+
+state 4
+
+    (5) program -> while_statement .
+
+    INT             reduce using rule 5 (program -> while_statement .)
+    STR             reduce using rule 5 (program -> while_statement .)
+    ID              reduce using rule 5 (program -> while_statement .)
+    RETURN          reduce using rule 5 (program -> while_statement .)
+    COMENT          reduce using rule 5 (program -> while_statement .)
+    LPAREN          reduce using rule 5 (program -> while_statement .)
+    NUMBER          reduce using rule 5 (program -> while_statement .)
+    STRING          reduce using rule 5 (program -> while_statement .)
+    WHILE           reduce using rule 5 (program -> while_statement .)
+    $end            reduce using rule 5 (program -> while_statement .)
+    RPAREN          reduce using rule 5 (program -> while_statement .)
+
+
+state 5
+
+    (7) statement -> INT . ID EQUAL expression
+
+    ID              shift and go to state 19
+
+
+state 6
+
+    (9) statement -> ID . EQUAL expression
+    (27) expression -> ID .
+
+    EQUAL           shift and go to state 20
+    PLUS            reduce using rule 27 (expression -> ID .)
+    MINUS           reduce using rule 27 (expression -> ID .)
+    INT             reduce using rule 27 (expression -> ID .)
+    STR             reduce using rule 27 (expression -> ID .)
+    ID              reduce using rule 27 (expression -> ID .)
+    RETURN          reduce using rule 27 (expression -> ID .)
+    COMENT          reduce using rule 27 (expression -> ID .)
+    LPAREN          reduce using rule 27 (expression -> ID .)
+    NUMBER          reduce using rule 27 (expression -> ID .)
+    STRING          reduce using rule 27 (expression -> ID .)
+    WHILE           reduce using rule 27 (expression -> ID .)
+    $end            reduce using rule 27 (expression -> ID .)
+    RPAREN          reduce using rule 27 (expression -> ID .)
+
+
+state 7
+
+    (8) statement -> STR . ID EQUAL expression
+
+    ID              shift and go to state 21
+
+
+state 8
+
+    (30) statement -> RETURN . expression
+    (31) statement -> RETURN . statement
+    (14) expression -> . expression PLUS term
+    (15) expression -> . expression PLUS expression
+    (16) expression -> . expression MINUS term
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . LPAREN expression RPAREN
+    (19) expression -> . LPAREN statement RPAREN
+    (27) expression -> . ID
+    (28) expression -> . NUMBER
+    (29) expression -> . STRING
+    (7) statement -> . INT ID EQUAL expression
+    (8) statement -> . STR ID EQUAL expression
+    (9) statement -> . ID EQUAL expression
+    (30) statement -> . RETURN expression
+    (31) statement -> . RETURN statement
+    (32) statement -> . COMENT
+
+    LPAREN          shift and go to state 10
+    ID              shift and go to state 24
+    NUMBER          shift and go to state 11
+    STRING          shift and go to state 12
+    INT             shift and go to state 5
+    STR             shift and go to state 7
+    RETURN          shift and go to state 8
+    COMENT          shift and go to state 9
+
+    expression                     shift and go to state 22
+    statement                      shift and go to state 23
+
+state 9
+
+    (32) statement -> COMENT .
+
+    INT             reduce using rule 32 (statement -> COMENT .)
+    STR             reduce using rule 32 (statement -> COMENT .)
+    ID              reduce using rule 32 (statement -> COMENT .)
+    RETURN          reduce using rule 32 (statement -> COMENT .)
+    COMENT          reduce using rule 32 (statement -> COMENT .)
+    LPAREN          reduce using rule 32 (statement -> COMENT .)
+    NUMBER          reduce using rule 32 (statement -> COMENT .)
+    STRING          reduce using rule 32 (statement -> COMENT .)
+    WHILE           reduce using rule 32 (statement -> COMENT .)
+    $end            reduce using rule 32 (statement -> COMENT .)
+    PLUS            reduce using rule 32 (statement -> COMENT .)
+    MINUS           reduce using rule 32 (statement -> COMENT .)
+    RPAREN          reduce using rule 32 (statement -> COMENT .)
+    EQUALS          reduce using rule 32 (statement -> COMENT .)
+    NOTEQUAL        reduce using rule 32 (statement -> COMENT .)
+
+
+state 10
+
+    (18) expression -> LPAREN . expression RPAREN
+    (19) expression -> LPAREN . statement RPAREN
+    (14) expression -> . expression PLUS term
+    (15) expression -> . expression PLUS expression
+    (16) expression -> . expression MINUS term
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . LPAREN expression RPAREN
+    (19) expression -> . LPAREN statement RPAREN
+    (27) expression -> . ID
+    (28) expression -> . NUMBER
+    (29) expression -> . STRING
+    (7) statement -> . INT ID EQUAL expression
+    (8) statement -> . STR ID EQUAL expression
+    (9) statement -> . ID EQUAL expression
+    (30) statement -> . RETURN expression
+    (31) statement -> . RETURN statement
+    (32) statement -> . COMENT
+
+    LPAREN          shift and go to state 10
+    ID              shift and go to state 24
+    NUMBER          shift and go to state 11
+    STRING          shift and go to state 12
+    INT             shift and go to state 5
+    STR             shift and go to state 7
+    RETURN          shift and go to state 8
+    COMENT          shift and go to state 9
+
+    expression                     shift and go to state 25
+    statement                      shift and go to state 26
+
+state 11
+
+    (28) expression -> NUMBER .
+
+    PLUS            reduce using rule 28 (expression -> NUMBER .)
+    MINUS           reduce using rule 28 (expression -> NUMBER .)
+    INT             reduce using rule 28 (expression -> NUMBER .)
+    STR             reduce using rule 28 (expression -> NUMBER .)
+    ID              reduce using rule 28 (expression -> NUMBER .)
+    RETURN          reduce using rule 28 (expression -> NUMBER .)
+    COMENT          reduce using rule 28 (expression -> NUMBER .)
+    LPAREN          reduce using rule 28 (expression -> NUMBER .)
+    NUMBER          reduce using rule 28 (expression -> NUMBER .)
+    STRING          reduce using rule 28 (expression -> NUMBER .)
+    WHILE           reduce using rule 28 (expression -> NUMBER .)
+    $end            reduce using rule 28 (expression -> NUMBER .)
+    RPAREN          reduce using rule 28 (expression -> NUMBER .)
+    EQUALS          reduce using rule 28 (expression -> NUMBER .)
+    NOTEQUAL        reduce using rule 28 (expression -> NUMBER .)
+
+
+state 12
+
+    (29) expression -> STRING .
+
+    PLUS            reduce using rule 29 (expression -> STRING .)
+    MINUS           reduce using rule 29 (expression -> STRING .)
+    INT             reduce using rule 29 (expression -> STRING .)
+    STR             reduce using rule 29 (expression -> STRING .)
+    ID              reduce using rule 29 (expression -> STRING .)
+    RETURN          reduce using rule 29 (expression -> STRING .)
+    COMENT          reduce using rule 29 (expression -> STRING .)
+    LPAREN          reduce using rule 29 (expression -> STRING .)
+    NUMBER          reduce using rule 29 (expression -> STRING .)
+    STRING          reduce using rule 29 (expression -> STRING .)
+    WHILE           reduce using rule 29 (expression -> STRING .)
+    $end            reduce using rule 29 (expression -> STRING .)
+    RPAREN          reduce using rule 29 (expression -> STRING .)
+    EQUALS          reduce using rule 29 (expression -> STRING .)
+    NOTEQUAL        reduce using rule 29 (expression -> STRING .)
+
+
+state 13
+
+    (23) while_statement -> WHILE . expression EQUALS expression
+    (24) while_statement -> WHILE . expression EQUALS expression expression_while
+    (25) while_statement -> WHILE . expression NOTEQUAL expression
+    (26) while_statement -> WHILE . expression NOTEQUAL expression expression_while
+    (14) expression -> . expression PLUS term
+    (15) expression -> . expression PLUS expression
+    (16) expression -> . expression MINUS term
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . LPAREN expression RPAREN
+    (19) expression -> . LPAREN statement RPAREN
+    (27) expression -> . ID
+    (28) expression -> . NUMBER
+    (29) expression -> . STRING
+
+    LPAREN          shift and go to state 10
+    ID              shift and go to state 28
+    NUMBER          shift and go to state 11
+    STRING          shift and go to state 12
+
+    expression                     shift and go to state 27
+
+state 14
+
+    (2) program -> program statement .
+
+    INT             reduce using rule 2 (program -> program statement .)
+    STR             reduce using rule 2 (program -> program statement .)
+    ID              reduce using rule 2 (program -> program statement .)
+    RETURN          reduce using rule 2 (program -> program statement .)
+    COMENT          reduce using rule 2 (program -> program statement .)
+    LPAREN          reduce using rule 2 (program -> program statement .)
+    NUMBER          reduce using rule 2 (program -> program statement .)
+    STRING          reduce using rule 2 (program -> program statement .)
+    WHILE           reduce using rule 2 (program -> program statement .)
+    $end            reduce using rule 2 (program -> program statement .)
+    RPAREN          reduce using rule 2 (program -> program statement .)
+
+
+state 15
+
+    (4) program -> program expression .
+    (14) expression -> expression . PLUS term
+    (15) expression -> expression . PLUS expression
+    (16) expression -> expression . MINUS term
+    (17) expression -> expression . MINUS expression
+
+    INT             reduce using rule 4 (program -> program expression .)
+    STR             reduce using rule 4 (program -> program expression .)
+    ID              reduce using rule 4 (program -> program expression .)
+    RETURN          reduce using rule 4 (program -> program expression .)
+    COMENT          reduce using rule 4 (program -> program expression .)
+    LPAREN          reduce using rule 4 (program -> program expression .)
+    NUMBER          reduce using rule 4 (program -> program expression .)
+    STRING          reduce using rule 4 (program -> program expression .)
+    WHILE           reduce using rule 4 (program -> program expression .)
+    $end            reduce using rule 4 (program -> program expression .)
+    RPAREN          reduce using rule 4 (program -> program expression .)
+    PLUS            shift and go to state 17
+    MINUS           shift and go to state 18
+
+
+state 16
+
+    (6) program -> program while_statement .
+
+    INT             reduce using rule 6 (program -> program while_statement .)
+    STR             reduce using rule 6 (program -> program while_statement .)
+    ID              reduce using rule 6 (program -> program while_statement .)
+    RETURN          reduce using rule 6 (program -> program while_statement .)
+    COMENT          reduce using rule 6 (program -> program while_statement .)
+    LPAREN          reduce using rule 6 (program -> program while_statement .)
+    NUMBER          reduce using rule 6 (program -> program while_statement .)
+    STRING          reduce using rule 6 (program -> program while_statement .)
+    WHILE           reduce using rule 6 (program -> program while_statement .)
+    $end            reduce using rule 6 (program -> program while_statement .)
+    RPAREN          reduce using rule 6 (program -> program while_statement .)
+
+
+state 17
+
+    (14) expression -> expression PLUS . term
+    (15) expression -> expression PLUS . expression
+    (10) term -> . expression
+    (11) term -> . statement
+    (12) term -> . INT
+    (13) term -> . STR
+    (14) expression -> . expression PLUS term
+    (15) expression -> . expression PLUS expression
+    (16) expression -> . expression MINUS term
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . LPAREN expression RPAREN
+    (19) expression -> . LPAREN statement RPAREN
+    (27) expression -> . ID
+    (28) expression -> . NUMBER
+    (29) expression -> . STRING
+    (7) statement -> . INT ID EQUAL expression
+    (8) statement -> . STR ID EQUAL expression
+    (9) statement -> . ID EQUAL expression
+    (30) statement -> . RETURN expression
+    (31) statement -> . RETURN statement
+    (32) statement -> . COMENT
+
+    INT             shift and go to state 32
+    STR             shift and go to state 33
+    LPAREN          shift and go to state 10
+    ID              shift and go to state 24
+    NUMBER          shift and go to state 11
+    STRING          shift and go to state 12
+    RETURN          shift and go to state 8
+    COMENT          shift and go to state 9
+
+    expression                     shift and go to state 29
+    term                           shift and go to state 30
+    statement                      shift and go to state 31
+
+state 18
+
+    (16) expression -> expression MINUS . term
+    (17) expression -> expression MINUS . expression
+    (10) term -> . expression
+    (11) term -> . statement
+    (12) term -> . INT
+    (13) term -> . STR
+    (14) expression -> . expression PLUS term
+    (15) expression -> . expression PLUS expression
+    (16) expression -> . expression MINUS term
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . LPAREN expression RPAREN
+    (19) expression -> . LPAREN statement RPAREN
+    (27) expression -> . ID
+    (28) expression -> . NUMBER
+    (29) expression -> . STRING
+    (7) statement -> . INT ID EQUAL expression
+    (8) statement -> . STR ID EQUAL expression
+    (9) statement -> . ID EQUAL expression
+    (30) statement -> . RETURN expression
+    (31) statement -> . RETURN statement
+    (32) statement -> . COMENT
+
+    INT             shift and go to state 32
+    STR             shift and go to state 33
+    LPAREN          shift and go to state 10
+    ID              shift and go to state 24
+    NUMBER          shift and go to state 11
+    STRING          shift and go to state 12
+    RETURN          shift and go to state 8
+    COMENT          shift and go to state 9
+
+    expression                     shift and go to state 34
+    term                           shift and go to state 35
+    statement                      shift and go to state 31
+
+state 19
+
+    (7) statement -> INT ID . EQUAL expression
+
+    EQUAL           shift and go to state 36
+
+
+state 20
+
+    (9) statement -> ID EQUAL . expression
+    (14) expression -> . expression PLUS term
+    (15) expression -> . expression PLUS expression
+    (16) expression -> . expression MINUS term
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . LPAREN expression RPAREN
+    (19) expression -> . LPAREN statement RPAREN
+    (27) expression -> . ID
+    (28) expression -> . NUMBER
+    (29) expression -> . STRING
+
+    LPAREN          shift and go to state 10
+    ID              shift and go to state 28
+    NUMBER          shift and go to state 11
+    STRING          shift and go to state 12
+
+    expression                     shift and go to state 37
+
+state 21
+
+    (8) statement -> STR ID . EQUAL expression
+
+    EQUAL           shift and go to state 38
+
+
+state 22
+
+    (30) statement -> RETURN expression .
+    (14) expression -> expression . PLUS term
+    (15) expression -> expression . PLUS expression
+    (16) expression -> expression . MINUS term
+    (17) expression -> expression . MINUS expression
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+    INT             reduce using rule 30 (statement -> RETURN expression .)
+    STR             reduce using rule 30 (statement -> RETURN expression .)
+    ID              reduce using rule 30 (statement -> RETURN expression .)
+    RETURN          reduce using rule 30 (statement -> RETURN expression .)
+    COMENT          reduce using rule 30 (statement -> RETURN expression .)
+    LPAREN          reduce using rule 30 (statement -> RETURN expression .)
+    NUMBER          reduce using rule 30 (statement -> RETURN expression .)
+    STRING          reduce using rule 30 (statement -> RETURN expression .)
+    WHILE           reduce using rule 30 (statement -> RETURN expression .)
+    $end            reduce using rule 30 (statement -> RETURN expression .)
+    RPAREN          reduce using rule 30 (statement -> RETURN expression .)
+    EQUALS          reduce using rule 30 (statement -> RETURN expression .)
+    NOTEQUAL        reduce using rule 30 (statement -> RETURN expression .)
+    PLUS            shift and go to state 17
+    MINUS           shift and go to state 18
+
+  ! PLUS            [ reduce using rule 30 (statement -> RETURN expression .) ]
+  ! MINUS           [ reduce using rule 30 (statement -> RETURN expression .) ]
+
+
+state 23
+
+    (31) statement -> RETURN statement .
+
+    INT             reduce using rule 31 (statement -> RETURN statement .)
+    STR             reduce using rule 31 (statement -> RETURN statement .)
+    ID              reduce using rule 31 (statement -> RETURN statement .)
+    RETURN          reduce using rule 31 (statement -> RETURN statement .)
+    COMENT          reduce using rule 31 (statement -> RETURN statement .)
+    LPAREN          reduce using rule 31 (statement -> RETURN statement .)
+    NUMBER          reduce using rule 31 (statement -> RETURN statement .)
+    STRING          reduce using rule 31 (statement -> RETURN statement .)
+    WHILE           reduce using rule 31 (statement -> RETURN statement .)
+    $end            reduce using rule 31 (statement -> RETURN statement .)
+    PLUS            reduce using rule 31 (statement -> RETURN statement .)
+    MINUS           reduce using rule 31 (statement -> RETURN statement .)
+    RPAREN          reduce using rule 31 (statement -> RETURN statement .)
+    EQUALS          reduce using rule 31 (statement -> RETURN statement .)
+    NOTEQUAL        reduce using rule 31 (statement -> RETURN statement .)
+
+
+state 24
+
+    (27) expression -> ID .
+    (9) statement -> ID . EQUAL expression
+
+    PLUS            reduce using rule 27 (expression -> ID .)
+    MINUS           reduce using rule 27 (expression -> ID .)
+    INT             reduce using rule 27 (expression -> ID .)
+    STR             reduce using rule 27 (expression -> ID .)
+    ID              reduce using rule 27 (expression -> ID .)
+    RETURN          reduce using rule 27 (expression -> ID .)
+    COMENT          reduce using rule 27 (expression -> ID .)
+    LPAREN          reduce using rule 27 (expression -> ID .)
+    NUMBER          reduce using rule 27 (expression -> ID .)
+    STRING          reduce using rule 27 (expression -> ID .)
+    WHILE           reduce using rule 27 (expression -> ID .)
+    $end            reduce using rule 27 (expression -> ID .)
+    RPAREN          reduce using rule 27 (expression -> ID .)
+    EQUALS          reduce using rule 27 (expression -> ID .)
+    NOTEQUAL        reduce using rule 27 (expression -> ID .)
+    EQUAL           shift and go to state 20
+
+
+state 25
+
+    (18) expression -> LPAREN expression . RPAREN
+    (14) expression -> expression . PLUS term
+    (15) expression -> expression . PLUS expression
+    (16) expression -> expression . MINUS term
+    (17) expression -> expression . MINUS expression
+
+    RPAREN          shift and go to state 39
+    PLUS            shift and go to state 17
+    MINUS           shift and go to state 18
+
+
+state 26
+
+    (19) expression -> LPAREN statement . RPAREN
+
+    RPAREN          shift and go to state 40
+
+
+state 27
+
+    (23) while_statement -> WHILE expression . EQUALS expression
+    (24) while_statement -> WHILE expression . EQUALS expression expression_while
+    (25) while_statement -> WHILE expression . NOTEQUAL expression
+    (26) while_statement -> WHILE expression . NOTEQUAL expression expression_while
+    (14) expression -> expression . PLUS term
+    (15) expression -> expression . PLUS expression
+    (16) expression -> expression . MINUS term
+    (17) expression -> expression . MINUS expression
+
+    EQUALS          shift and go to state 41
+    NOTEQUAL        shift and go to state 42
+    PLUS            shift and go to state 17
+    MINUS           shift and go to state 18
+
+
+state 28
+
+    (27) expression -> ID .
+
+    EQUALS          reduce using rule 27 (expression -> ID .)
+    NOTEQUAL        reduce using rule 27 (expression -> ID .)
+    PLUS            reduce using rule 27 (expression -> ID .)
+    MINUS           reduce using rule 27 (expression -> ID .)
+    INT             reduce using rule 27 (expression -> ID .)
+    STR             reduce using rule 27 (expression -> ID .)
+    ID              reduce using rule 27 (expression -> ID .)
+    RETURN          reduce using rule 27 (expression -> ID .)
+    COMENT          reduce using rule 27 (expression -> ID .)
+    LPAREN          reduce using rule 27 (expression -> ID .)
+    NUMBER          reduce using rule 27 (expression -> ID .)
+    STRING          reduce using rule 27 (expression -> ID .)
+    WHILE           reduce using rule 27 (expression -> ID .)
+    $end            reduce using rule 27 (expression -> ID .)
+    RPAREN          reduce using rule 27 (expression -> ID .)
+
+
+state 29
+
+    (15) expression -> expression PLUS expression .
+    (10) term -> expression .
+    (14) expression -> expression . PLUS term
+    (15) expression -> expression . PLUS expression
+    (16) expression -> expression . MINUS term
+    (17) expression -> expression . MINUS expression
+
+  ! reduce/reduce conflict for PLUS resolved using rule 10 (term -> expression .)
+  ! reduce/reduce conflict for MINUS resolved using rule 10 (term -> expression .)
+  ! reduce/reduce conflict for INT resolved using rule 10 (term -> expression .)
+  ! reduce/reduce conflict for STR resolved using rule 10 (term -> expression .)
+  ! reduce/reduce conflict for ID resolved using rule 10 (term -> expression .)
+  ! reduce/reduce conflict for RETURN resolved using rule 10 (term -> expression .)
+  ! reduce/reduce conflict for COMENT resolved using rule 10 (term -> expression .)
+  ! reduce/reduce conflict for LPAREN resolved using rule 10 (term -> expression .)
+  ! reduce/reduce conflict for NUMBER resolved using rule 10 (term -> expression .)
+  ! reduce/reduce conflict for STRING resolved using rule 10 (term -> expression .)
+  ! reduce/reduce conflict for WHILE resolved using rule 10 (term -> expression .)
+  ! reduce/reduce conflict for $end resolved using rule 10 (term -> expression .)
+  ! reduce/reduce conflict for RPAREN resolved using rule 10 (term -> expression .)
+  ! reduce/reduce conflict for EQUALS resolved using rule 10 (term -> expression .)
+  ! reduce/reduce conflict for NOTEQUAL resolved using rule 10 (term -> expression .)
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+    INT             reduce using rule 10 (term -> expression .)
+    STR             reduce using rule 10 (term -> expression .)
+    ID              reduce using rule 10 (term -> expression .)
+    RETURN          reduce using rule 10 (term -> expression .)
+    COMENT          reduce using rule 10 (term -> expression .)
+    LPAREN          reduce using rule 10 (term -> expression .)
+    NUMBER          reduce using rule 10 (term -> expression .)
+    STRING          reduce using rule 10 (term -> expression .)
+    WHILE           reduce using rule 10 (term -> expression .)
+    $end            reduce using rule 10 (term -> expression .)
+    RPAREN          reduce using rule 10 (term -> expression .)
+    EQUALS          reduce using rule 10 (term -> expression .)
+    NOTEQUAL        reduce using rule 10 (term -> expression .)
+    PLUS            shift and go to state 17
+    MINUS           shift and go to state 18
+
+  ! PLUS            [ reduce using rule 15 (expression -> expression PLUS expression .) ]
+  ! MINUS           [ reduce using rule 15 (expression -> expression PLUS expression .) ]
+  ! INT             [ reduce using rule 15 (expression -> expression PLUS expression .) ]
+  ! STR             [ reduce using rule 15 (expression -> expression PLUS expression .) ]
+  ! ID              [ reduce using rule 15 (expression -> expression PLUS expression .) ]
+  ! RETURN          [ reduce using rule 15 (expression -> expression PLUS expression .) ]
+  ! COMENT          [ reduce using rule 15 (expression -> expression PLUS expression .) ]
+  ! LPAREN          [ reduce using rule 15 (expression -> expression PLUS expression .) ]
+  ! NUMBER          [ reduce using rule 15 (expression -> expression PLUS expression .) ]
+  ! STRING          [ reduce using rule 15 (expression -> expression PLUS expression .) ]
+  ! WHILE           [ reduce using rule 15 (expression -> expression PLUS expression .) ]
+  ! $end            [ reduce using rule 15 (expression -> expression PLUS expression .) ]
+  ! RPAREN          [ reduce using rule 15 (expression -> expression PLUS expression .) ]
+  ! EQUALS          [ reduce using rule 15 (expression -> expression PLUS expression .) ]
+  ! NOTEQUAL        [ reduce using rule 15 (expression -> expression PLUS expression .) ]
+  ! PLUS            [ reduce using rule 10 (term -> expression .) ]
+  ! MINUS           [ reduce using rule 10 (term -> expression .) ]
+
+
+state 30
+
+    (14) expression -> expression PLUS term .
+
+    PLUS            reduce using rule 14 (expression -> expression PLUS term .)
+    MINUS           reduce using rule 14 (expression -> expression PLUS term .)
+    INT             reduce using rule 14 (expression -> expression PLUS term .)
+    STR             reduce using rule 14 (expression -> expression PLUS term .)
+    ID              reduce using rule 14 (expression -> expression PLUS term .)
+    RETURN          reduce using rule 14 (expression -> expression PLUS term .)
+    COMENT          reduce using rule 14 (expression -> expression PLUS term .)
+    LPAREN          reduce using rule 14 (expression -> expression PLUS term .)
+    NUMBER          reduce using rule 14 (expression -> expression PLUS term .)
+    STRING          reduce using rule 14 (expression -> expression PLUS term .)
+    WHILE           reduce using rule 14 (expression -> expression PLUS term .)
+    $end            reduce using rule 14 (expression -> expression PLUS term .)
+    RPAREN          reduce using rule 14 (expression -> expression PLUS term .)
+    EQUALS          reduce using rule 14 (expression -> expression PLUS term .)
+    NOTEQUAL        reduce using rule 14 (expression -> expression PLUS term .)
+
+
+state 31
+
+    (11) term -> statement .
+
+    PLUS            reduce using rule 11 (term -> statement .)
+    MINUS           reduce using rule 11 (term -> statement .)
+    INT             reduce using rule 11 (term -> statement .)
+    STR             reduce using rule 11 (term -> statement .)
+    ID              reduce using rule 11 (term -> statement .)
+    RETURN          reduce using rule 11 (term -> statement .)
+    COMENT          reduce using rule 11 (term -> statement .)
+    LPAREN          reduce using rule 11 (term -> statement .)
+    NUMBER          reduce using rule 11 (term -> statement .)
+    STRING          reduce using rule 11 (term -> statement .)
+    WHILE           reduce using rule 11 (term -> statement .)
+    $end            reduce using rule 11 (term -> statement .)
+    RPAREN          reduce using rule 11 (term -> statement .)
+    EQUALS          reduce using rule 11 (term -> statement .)
+    NOTEQUAL        reduce using rule 11 (term -> statement .)
+
+
+state 32
+
+    (12) term -> INT .
+    (7) statement -> INT . ID EQUAL expression
+
+  ! shift/reduce conflict for ID resolved as shift
+    PLUS            reduce using rule 12 (term -> INT .)
+    MINUS           reduce using rule 12 (term -> INT .)
+    INT             reduce using rule 12 (term -> INT .)
+    STR             reduce using rule 12 (term -> INT .)
+    RETURN          reduce using rule 12 (term -> INT .)
+    COMENT          reduce using rule 12 (term -> INT .)
+    LPAREN          reduce using rule 12 (term -> INT .)
+    NUMBER          reduce using rule 12 (term -> INT .)
+    STRING          reduce using rule 12 (term -> INT .)
+    WHILE           reduce using rule 12 (term -> INT .)
+    $end            reduce using rule 12 (term -> INT .)
+    RPAREN          reduce using rule 12 (term -> INT .)
+    EQUALS          reduce using rule 12 (term -> INT .)
+    NOTEQUAL        reduce using rule 12 (term -> INT .)
+    ID              shift and go to state 19
+
+  ! ID              [ reduce using rule 12 (term -> INT .) ]
+
+
+state 33
+
+    (13) term -> STR .
+    (8) statement -> STR . ID EQUAL expression
+
+  ! shift/reduce conflict for ID resolved as shift
+    PLUS            reduce using rule 13 (term -> STR .)
+    MINUS           reduce using rule 13 (term -> STR .)
+    INT             reduce using rule 13 (term -> STR .)
+    STR             reduce using rule 13 (term -> STR .)
+    RETURN          reduce using rule 13 (term -> STR .)
+    COMENT          reduce using rule 13 (term -> STR .)
+    LPAREN          reduce using rule 13 (term -> STR .)
+    NUMBER          reduce using rule 13 (term -> STR .)
+    STRING          reduce using rule 13 (term -> STR .)
+    WHILE           reduce using rule 13 (term -> STR .)
+    $end            reduce using rule 13 (term -> STR .)
+    RPAREN          reduce using rule 13 (term -> STR .)
+    EQUALS          reduce using rule 13 (term -> STR .)
+    NOTEQUAL        reduce using rule 13 (term -> STR .)
+    ID              shift and go to state 21
+
+  ! ID              [ reduce using rule 13 (term -> STR .) ]
+
+
+state 34
+
+    (17) expression -> expression MINUS expression .
+    (10) term -> expression .
+    (14) expression -> expression . PLUS term
+    (15) expression -> expression . PLUS expression
+    (16) expression -> expression . MINUS term
+    (17) expression -> expression . MINUS expression
+
+  ! reduce/reduce conflict for PLUS resolved using rule 10 (term -> expression .)
+  ! reduce/reduce conflict for MINUS resolved using rule 10 (term -> expression .)
+  ! reduce/reduce conflict for INT resolved using rule 10 (term -> expression .)
+  ! reduce/reduce conflict for STR resolved using rule 10 (term -> expression .)
+  ! reduce/reduce conflict for ID resolved using rule 10 (term -> expression .)
+  ! reduce/reduce conflict for RETURN resolved using rule 10 (term -> expression .)
+  ! reduce/reduce conflict for COMENT resolved using rule 10 (term -> expression .)
+  ! reduce/reduce conflict for LPAREN resolved using rule 10 (term -> expression .)
+  ! reduce/reduce conflict for NUMBER resolved using rule 10 (term -> expression .)
+  ! reduce/reduce conflict for STRING resolved using rule 10 (term -> expression .)
+  ! reduce/reduce conflict for WHILE resolved using rule 10 (term -> expression .)
+  ! reduce/reduce conflict for $end resolved using rule 10 (term -> expression .)
+  ! reduce/reduce conflict for RPAREN resolved using rule 10 (term -> expression .)
+  ! reduce/reduce conflict for EQUALS resolved using rule 10 (term -> expression .)
+  ! reduce/reduce conflict for NOTEQUAL resolved using rule 10 (term -> expression .)
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+    INT             reduce using rule 10 (term -> expression .)
+    STR             reduce using rule 10 (term -> expression .)
+    ID              reduce using rule 10 (term -> expression .)
+    RETURN          reduce using rule 10 (term -> expression .)
+    COMENT          reduce using rule 10 (term -> expression .)
+    LPAREN          reduce using rule 10 (term -> expression .)
+    NUMBER          reduce using rule 10 (term -> expression .)
+    STRING          reduce using rule 10 (term -> expression .)
+    WHILE           reduce using rule 10 (term -> expression .)
+    $end            reduce using rule 10 (term -> expression .)
+    RPAREN          reduce using rule 10 (term -> expression .)
+    EQUALS          reduce using rule 10 (term -> expression .)
+    NOTEQUAL        reduce using rule 10 (term -> expression .)
+    PLUS            shift and go to state 17
+    MINUS           shift and go to state 18
+
+  ! PLUS            [ reduce using rule 17 (expression -> expression MINUS expression .) ]
+  ! MINUS           [ reduce using rule 17 (expression -> expression MINUS expression .) ]
+  ! INT             [ reduce using rule 17 (expression -> expression MINUS expression .) ]
+  ! STR             [ reduce using rule 17 (expression -> expression MINUS expression .) ]
+  ! ID              [ reduce using rule 17 (expression -> expression MINUS expression .) ]
+  ! RETURN          [ reduce using rule 17 (expression -> expression MINUS expression .) ]
+  ! COMENT          [ reduce using rule 17 (expression -> expression MINUS expression .) ]
+  ! LPAREN          [ reduce using rule 17 (expression -> expression MINUS expression .) ]
+  ! NUMBER          [ reduce using rule 17 (expression -> expression MINUS expression .) ]
+  ! STRING          [ reduce using rule 17 (expression -> expression MINUS expression .) ]
+  ! WHILE           [ reduce using rule 17 (expression -> expression MINUS expression .) ]
+  ! $end            [ reduce using rule 17 (expression -> expression MINUS expression .) ]
+  ! RPAREN          [ reduce using rule 17 (expression -> expression MINUS expression .) ]
+  ! EQUALS          [ reduce using rule 17 (expression -> expression MINUS expression .) ]
+  ! NOTEQUAL        [ reduce using rule 17 (expression -> expression MINUS expression .) ]
+  ! PLUS            [ reduce using rule 10 (term -> expression .) ]
+  ! MINUS           [ reduce using rule 10 (term -> expression .) ]
+
+
+state 35
+
+    (16) expression -> expression MINUS term .
+
+    PLUS            reduce using rule 16 (expression -> expression MINUS term .)
+    MINUS           reduce using rule 16 (expression -> expression MINUS term .)
+    INT             reduce using rule 16 (expression -> expression MINUS term .)
+    STR             reduce using rule 16 (expression -> expression MINUS term .)
+    ID              reduce using rule 16 (expression -> expression MINUS term .)
+    RETURN          reduce using rule 16 (expression -> expression MINUS term .)
+    COMENT          reduce using rule 16 (expression -> expression MINUS term .)
+    LPAREN          reduce using rule 16 (expression -> expression MINUS term .)
+    NUMBER          reduce using rule 16 (expression -> expression MINUS term .)
+    STRING          reduce using rule 16 (expression -> expression MINUS term .)
+    WHILE           reduce using rule 16 (expression -> expression MINUS term .)
+    $end            reduce using rule 16 (expression -> expression MINUS term .)
+    RPAREN          reduce using rule 16 (expression -> expression MINUS term .)
+    EQUALS          reduce using rule 16 (expression -> expression MINUS term .)
+    NOTEQUAL        reduce using rule 16 (expression -> expression MINUS term .)
+
+
+state 36
+
+    (7) statement -> INT ID EQUAL . expression
+    (14) expression -> . expression PLUS term
+    (15) expression -> . expression PLUS expression
+    (16) expression -> . expression MINUS term
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . LPAREN expression RPAREN
+    (19) expression -> . LPAREN statement RPAREN
+    (27) expression -> . ID
+    (28) expression -> . NUMBER
+    (29) expression -> . STRING
+
+    LPAREN          shift and go to state 10
+    ID              shift and go to state 28
+    NUMBER          shift and go to state 11
+    STRING          shift and go to state 12
+
+    expression                     shift and go to state 43
+
+state 37
+
+    (9) statement -> ID EQUAL expression .
+    (14) expression -> expression . PLUS term
+    (15) expression -> expression . PLUS expression
+    (16) expression -> expression . MINUS term
+    (17) expression -> expression . MINUS expression
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+    INT             reduce using rule 9 (statement -> ID EQUAL expression .)
+    STR             reduce using rule 9 (statement -> ID EQUAL expression .)
+    ID              reduce using rule 9 (statement -> ID EQUAL expression .)
+    RETURN          reduce using rule 9 (statement -> ID EQUAL expression .)
+    COMENT          reduce using rule 9 (statement -> ID EQUAL expression .)
+    LPAREN          reduce using rule 9 (statement -> ID EQUAL expression .)
+    NUMBER          reduce using rule 9 (statement -> ID EQUAL expression .)
+    STRING          reduce using rule 9 (statement -> ID EQUAL expression .)
+    WHILE           reduce using rule 9 (statement -> ID EQUAL expression .)
+    $end            reduce using rule 9 (statement -> ID EQUAL expression .)
+    RPAREN          reduce using rule 9 (statement -> ID EQUAL expression .)
+    EQUALS          reduce using rule 9 (statement -> ID EQUAL expression .)
+    NOTEQUAL        reduce using rule 9 (statement -> ID EQUAL expression .)
+    PLUS            shift and go to state 17
+    MINUS           shift and go to state 18
+
+  ! PLUS            [ reduce using rule 9 (statement -> ID EQUAL expression .) ]
+  ! MINUS           [ reduce using rule 9 (statement -> ID EQUAL expression .) ]
+
+
+state 38
+
+    (8) statement -> STR ID EQUAL . expression
+    (14) expression -> . expression PLUS term
+    (15) expression -> . expression PLUS expression
+    (16) expression -> . expression MINUS term
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . LPAREN expression RPAREN
+    (19) expression -> . LPAREN statement RPAREN
+    (27) expression -> . ID
+    (28) expression -> . NUMBER
+    (29) expression -> . STRING
+
+    LPAREN          shift and go to state 10
+    ID              shift and go to state 28
+    NUMBER          shift and go to state 11
+    STRING          shift and go to state 12
+
+    expression                     shift and go to state 44
+
+state 39
+
+    (18) expression -> LPAREN expression RPAREN .
+
+    PLUS            reduce using rule 18 (expression -> LPAREN expression RPAREN .)
+    MINUS           reduce using rule 18 (expression -> LPAREN expression RPAREN .)
+    INT             reduce using rule 18 (expression -> LPAREN expression RPAREN .)
+    STR             reduce using rule 18 (expression -> LPAREN expression RPAREN .)
+    ID              reduce using rule 18 (expression -> LPAREN expression RPAREN .)
+    RETURN          reduce using rule 18 (expression -> LPAREN expression RPAREN .)
+    COMENT          reduce using rule 18 (expression -> LPAREN expression RPAREN .)
+    LPAREN          reduce using rule 18 (expression -> LPAREN expression RPAREN .)
+    NUMBER          reduce using rule 18 (expression -> LPAREN expression RPAREN .)
+    STRING          reduce using rule 18 (expression -> LPAREN expression RPAREN .)
+    WHILE           reduce using rule 18 (expression -> LPAREN expression RPAREN .)
+    $end            reduce using rule 18 (expression -> LPAREN expression RPAREN .)
+    RPAREN          reduce using rule 18 (expression -> LPAREN expression RPAREN .)
+    EQUALS          reduce using rule 18 (expression -> LPAREN expression RPAREN .)
+    NOTEQUAL        reduce using rule 18 (expression -> LPAREN expression RPAREN .)
+
+
+state 40
+
+    (19) expression -> LPAREN statement RPAREN .
+
+    PLUS            reduce using rule 19 (expression -> LPAREN statement RPAREN .)
+    MINUS           reduce using rule 19 (expression -> LPAREN statement RPAREN .)
+    INT             reduce using rule 19 (expression -> LPAREN statement RPAREN .)
+    STR             reduce using rule 19 (expression -> LPAREN statement RPAREN .)
+    ID              reduce using rule 19 (expression -> LPAREN statement RPAREN .)
+    RETURN          reduce using rule 19 (expression -> LPAREN statement RPAREN .)
+    COMENT          reduce using rule 19 (expression -> LPAREN statement RPAREN .)
+    LPAREN          reduce using rule 19 (expression -> LPAREN statement RPAREN .)
+    NUMBER          reduce using rule 19 (expression -> LPAREN statement RPAREN .)
+    STRING          reduce using rule 19 (expression -> LPAREN statement RPAREN .)
+    WHILE           reduce using rule 19 (expression -> LPAREN statement RPAREN .)
+    $end            reduce using rule 19 (expression -> LPAREN statement RPAREN .)
+    RPAREN          reduce using rule 19 (expression -> LPAREN statement RPAREN .)
+    EQUALS          reduce using rule 19 (expression -> LPAREN statement RPAREN .)
+    NOTEQUAL        reduce using rule 19 (expression -> LPAREN statement RPAREN .)
+
+
+state 41
+
+    (23) while_statement -> WHILE expression EQUALS . expression
+    (24) while_statement -> WHILE expression EQUALS . expression expression_while
+    (14) expression -> . expression PLUS term
+    (15) expression -> . expression PLUS expression
+    (16) expression -> . expression MINUS term
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . LPAREN expression RPAREN
+    (19) expression -> . LPAREN statement RPAREN
+    (27) expression -> . ID
+    (28) expression -> . NUMBER
+    (29) expression -> . STRING
+
+    LPAREN          shift and go to state 10
+    ID              shift and go to state 28
+    NUMBER          shift and go to state 11
+    STRING          shift and go to state 12
+
+    expression                     shift and go to state 45
+
+state 42
+
+    (25) while_statement -> WHILE expression NOTEQUAL . expression
+    (26) while_statement -> WHILE expression NOTEQUAL . expression expression_while
+    (14) expression -> . expression PLUS term
+    (15) expression -> . expression PLUS expression
+    (16) expression -> . expression MINUS term
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . LPAREN expression RPAREN
+    (19) expression -> . LPAREN statement RPAREN
+    (27) expression -> . ID
+    (28) expression -> . NUMBER
+    (29) expression -> . STRING
+
+    LPAREN          shift and go to state 10
+    ID              shift and go to state 28
+    NUMBER          shift and go to state 11
+    STRING          shift and go to state 12
+
+    expression                     shift and go to state 46
+
+state 43
+
+    (7) statement -> INT ID EQUAL expression .
+    (14) expression -> expression . PLUS term
+    (15) expression -> expression . PLUS expression
+    (16) expression -> expression . MINUS term
+    (17) expression -> expression . MINUS expression
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+    INT             reduce using rule 7 (statement -> INT ID EQUAL expression .)
+    STR             reduce using rule 7 (statement -> INT ID EQUAL expression .)
+    ID              reduce using rule 7 (statement -> INT ID EQUAL expression .)
+    RETURN          reduce using rule 7 (statement -> INT ID EQUAL expression .)
+    COMENT          reduce using rule 7 (statement -> INT ID EQUAL expression .)
+    LPAREN          reduce using rule 7 (statement -> INT ID EQUAL expression .)
+    NUMBER          reduce using rule 7 (statement -> INT ID EQUAL expression .)
+    STRING          reduce using rule 7 (statement -> INT ID EQUAL expression .)
+    WHILE           reduce using rule 7 (statement -> INT ID EQUAL expression .)
+    $end            reduce using rule 7 (statement -> INT ID EQUAL expression .)
+    RPAREN          reduce using rule 7 (statement -> INT ID EQUAL expression .)
+    EQUALS          reduce using rule 7 (statement -> INT ID EQUAL expression .)
+    NOTEQUAL        reduce using rule 7 (statement -> INT ID EQUAL expression .)
+    PLUS            shift and go to state 17
+    MINUS           shift and go to state 18
+
+  ! PLUS            [ reduce using rule 7 (statement -> INT ID EQUAL expression .) ]
+  ! MINUS           [ reduce using rule 7 (statement -> INT ID EQUAL expression .) ]
+
+
+state 44
+
+    (8) statement -> STR ID EQUAL expression .
+    (14) expression -> expression . PLUS term
+    (15) expression -> expression . PLUS expression
+    (16) expression -> expression . MINUS term
+    (17) expression -> expression . MINUS expression
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+    INT             reduce using rule 8 (statement -> STR ID EQUAL expression .)
+    STR             reduce using rule 8 (statement -> STR ID EQUAL expression .)
+    ID              reduce using rule 8 (statement -> STR ID EQUAL expression .)
+    RETURN          reduce using rule 8 (statement -> STR ID EQUAL expression .)
+    COMENT          reduce using rule 8 (statement -> STR ID EQUAL expression .)
+    LPAREN          reduce using rule 8 (statement -> STR ID EQUAL expression .)
+    NUMBER          reduce using rule 8 (statement -> STR ID EQUAL expression .)
+    STRING          reduce using rule 8 (statement -> STR ID EQUAL expression .)
+    WHILE           reduce using rule 8 (statement -> STR ID EQUAL expression .)
+    $end            reduce using rule 8 (statement -> STR ID EQUAL expression .)
+    RPAREN          reduce using rule 8 (statement -> STR ID EQUAL expression .)
+    EQUALS          reduce using rule 8 (statement -> STR ID EQUAL expression .)
+    NOTEQUAL        reduce using rule 8 (statement -> STR ID EQUAL expression .)
+    PLUS            shift and go to state 17
+    MINUS           shift and go to state 18
+
+  ! PLUS            [ reduce using rule 8 (statement -> STR ID EQUAL expression .) ]
+  ! MINUS           [ reduce using rule 8 (statement -> STR ID EQUAL expression .) ]
+
+
+state 45
+
+    (23) while_statement -> WHILE expression EQUALS expression .
+    (24) while_statement -> WHILE expression EQUALS expression . expression_while
+    (14) expression -> expression . PLUS term
+    (15) expression -> expression . PLUS expression
+    (16) expression -> expression . MINUS term
+    (17) expression -> expression . MINUS expression
+    (20) expression_while -> . LPAREN expression RPAREN
+    (21) expression_while -> . LPAREN statement RPAREN
+    (22) expression_while -> . LPAREN program RPAREN
+
+  ! shift/reduce conflict for LPAREN resolved as shift
+    INT             reduce using rule 23 (while_statement -> WHILE expression EQUALS expression .)
+    STR             reduce using rule 23 (while_statement -> WHILE expression EQUALS expression .)
+    ID              reduce using rule 23 (while_statement -> WHILE expression EQUALS expression .)
+    RETURN          reduce using rule 23 (while_statement -> WHILE expression EQUALS expression .)
+    COMENT          reduce using rule 23 (while_statement -> WHILE expression EQUALS expression .)
+    NUMBER          reduce using rule 23 (while_statement -> WHILE expression EQUALS expression .)
+    STRING          reduce using rule 23 (while_statement -> WHILE expression EQUALS expression .)
+    WHILE           reduce using rule 23 (while_statement -> WHILE expression EQUALS expression .)
+    $end            reduce using rule 23 (while_statement -> WHILE expression EQUALS expression .)
+    RPAREN          reduce using rule 23 (while_statement -> WHILE expression EQUALS expression .)
+    PLUS            shift and go to state 17
+    MINUS           shift and go to state 18
+    LPAREN          shift and go to state 48
+
+  ! LPAREN          [ reduce using rule 23 (while_statement -> WHILE expression EQUALS expression .) ]
+
+    expression_while               shift and go to state 47
+
+state 46
+
+    (25) while_statement -> WHILE expression NOTEQUAL expression .
+    (26) while_statement -> WHILE expression NOTEQUAL expression . expression_while
+    (14) expression -> expression . PLUS term
+    (15) expression -> expression . PLUS expression
+    (16) expression -> expression . MINUS term
+    (17) expression -> expression . MINUS expression
+    (20) expression_while -> . LPAREN expression RPAREN
+    (21) expression_while -> . LPAREN statement RPAREN
+    (22) expression_while -> . LPAREN program RPAREN
+
+  ! shift/reduce conflict for LPAREN resolved as shift
+    INT             reduce using rule 25 (while_statement -> WHILE expression NOTEQUAL expression .)
+    STR             reduce using rule 25 (while_statement -> WHILE expression NOTEQUAL expression .)
+    ID              reduce using rule 25 (while_statement -> WHILE expression NOTEQUAL expression .)
+    RETURN          reduce using rule 25 (while_statement -> WHILE expression NOTEQUAL expression .)
+    COMENT          reduce using rule 25 (while_statement -> WHILE expression NOTEQUAL expression .)
+    NUMBER          reduce using rule 25 (while_statement -> WHILE expression NOTEQUAL expression .)
+    STRING          reduce using rule 25 (while_statement -> WHILE expression NOTEQUAL expression .)
+    WHILE           reduce using rule 25 (while_statement -> WHILE expression NOTEQUAL expression .)
+    $end            reduce using rule 25 (while_statement -> WHILE expression NOTEQUAL expression .)
+    RPAREN          reduce using rule 25 (while_statement -> WHILE expression NOTEQUAL expression .)
+    PLUS            shift and go to state 17
+    MINUS           shift and go to state 18
+    LPAREN          shift and go to state 48
+
+  ! LPAREN          [ reduce using rule 25 (while_statement -> WHILE expression NOTEQUAL expression .) ]
+
+    expression_while               shift and go to state 49
+
+state 47
+
+    (24) while_statement -> WHILE expression EQUALS expression expression_while .
+
+    INT             reduce using rule 24 (while_statement -> WHILE expression EQUALS expression expression_while .)
+    STR             reduce using rule 24 (while_statement -> WHILE expression EQUALS expression expression_while .)
+    ID              reduce using rule 24 (while_statement -> WHILE expression EQUALS expression expression_while .)
+    RETURN          reduce using rule 24 (while_statement -> WHILE expression EQUALS expression expression_while .)
+    COMENT          reduce using rule 24 (while_statement -> WHILE expression EQUALS expression expression_while .)
+    LPAREN          reduce using rule 24 (while_statement -> WHILE expression EQUALS expression expression_while .)
+    NUMBER          reduce using rule 24 (while_statement -> WHILE expression EQUALS expression expression_while .)
+    STRING          reduce using rule 24 (while_statement -> WHILE expression EQUALS expression expression_while .)
+    WHILE           reduce using rule 24 (while_statement -> WHILE expression EQUALS expression expression_while .)
+    $end            reduce using rule 24 (while_statement -> WHILE expression EQUALS expression expression_while .)
+    RPAREN          reduce using rule 24 (while_statement -> WHILE expression EQUALS expression expression_while .)
+
+
+state 48
+
+    (20) expression_while -> LPAREN . expression RPAREN
+    (21) expression_while -> LPAREN . statement RPAREN
+    (22) expression_while -> LPAREN . program RPAREN
+    (14) expression -> . expression PLUS term
+    (15) expression -> . expression PLUS expression
+    (16) expression -> . expression MINUS term
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . LPAREN expression RPAREN
+    (19) expression -> . LPAREN statement RPAREN
+    (27) expression -> . ID
+    (28) expression -> . NUMBER
+    (29) expression -> . STRING
+    (7) statement -> . INT ID EQUAL expression
+    (8) statement -> . STR ID EQUAL expression
+    (9) statement -> . ID EQUAL expression
+    (30) statement -> . RETURN expression
+    (31) statement -> . RETURN statement
+    (32) statement -> . COMENT
+    (1) program -> . statement
+    (2) program -> . program statement
+    (3) program -> . expression
+    (4) program -> . program expression
+    (5) program -> . while_statement
+    (6) program -> . program while_statement
+    (23) while_statement -> . WHILE expression EQUALS expression
+    (24) while_statement -> . WHILE expression EQUALS expression expression_while
+    (25) while_statement -> . WHILE expression NOTEQUAL expression
+    (26) while_statement -> . WHILE expression NOTEQUAL expression expression_while
+
+    LPAREN          shift and go to state 10
+    ID              shift and go to state 24
+    NUMBER          shift and go to state 11
+    STRING          shift and go to state 12
+    INT             shift and go to state 5
+    STR             shift and go to state 7
+    RETURN          shift and go to state 8
+    COMENT          shift and go to state 9
+    WHILE           shift and go to state 13
+
+    expression                     shift and go to state 50
+    statement                      shift and go to state 51
+    program                        shift and go to state 52
+    while_statement                shift and go to state 4
+
+state 49
+
+    (26) while_statement -> WHILE expression NOTEQUAL expression expression_while .
+
+    INT             reduce using rule 26 (while_statement -> WHILE expression NOTEQUAL expression expression_while .)
+    STR             reduce using rule 26 (while_statement -> WHILE expression NOTEQUAL expression expression_while .)
+    ID              reduce using rule 26 (while_statement -> WHILE expression NOTEQUAL expression expression_while .)
+    RETURN          reduce using rule 26 (while_statement -> WHILE expression NOTEQUAL expression expression_while .)
+    COMENT          reduce using rule 26 (while_statement -> WHILE expression NOTEQUAL expression expression_while .)
+    LPAREN          reduce using rule 26 (while_statement -> WHILE expression NOTEQUAL expression expression_while .)
+    NUMBER          reduce using rule 26 (while_statement -> WHILE expression NOTEQUAL expression expression_while .)
+    STRING          reduce using rule 26 (while_statement -> WHILE expression NOTEQUAL expression expression_while .)
+    WHILE           reduce using rule 26 (while_statement -> WHILE expression NOTEQUAL expression expression_while .)
+    $end            reduce using rule 26 (while_statement -> WHILE expression NOTEQUAL expression expression_while .)
+    RPAREN          reduce using rule 26 (while_statement -> WHILE expression NOTEQUAL expression expression_while .)
+
+
+state 50
+
+    (20) expression_while -> LPAREN expression . RPAREN
+    (14) expression -> expression . PLUS term
+    (15) expression -> expression . PLUS expression
+    (16) expression -> expression . MINUS term
+    (17) expression -> expression . MINUS expression
+    (3) program -> expression .
+
+  ! shift/reduce conflict for RPAREN resolved as shift
+    RPAREN          shift and go to state 53
+    PLUS            shift and go to state 17
+    MINUS           shift and go to state 18
+    INT             reduce using rule 3 (program -> expression .)
+    STR             reduce using rule 3 (program -> expression .)
+    ID              reduce using rule 3 (program -> expression .)
+    RETURN          reduce using rule 3 (program -> expression .)
+    COMENT          reduce using rule 3 (program -> expression .)
+    LPAREN          reduce using rule 3 (program -> expression .)
+    NUMBER          reduce using rule 3 (program -> expression .)
+    STRING          reduce using rule 3 (program -> expression .)
+    WHILE           reduce using rule 3 (program -> expression .)
+
+  ! RPAREN          [ reduce using rule 3 (program -> expression .) ]
+
+
+state 51
+
+    (21) expression_while -> LPAREN statement . RPAREN
+    (1) program -> statement .
+
+  ! shift/reduce conflict for RPAREN resolved as shift
+    RPAREN          shift and go to state 54
+    INT             reduce using rule 1 (program -> statement .)
+    STR             reduce using rule 1 (program -> statement .)
+    ID              reduce using rule 1 (program -> statement .)
+    RETURN          reduce using rule 1 (program -> statement .)
+    COMENT          reduce using rule 1 (program -> statement .)
+    LPAREN          reduce using rule 1 (program -> statement .)
+    NUMBER          reduce using rule 1 (program -> statement .)
+    STRING          reduce using rule 1 (program -> statement .)
+    WHILE           reduce using rule 1 (program -> statement .)
+
+  ! RPAREN          [ reduce using rule 1 (program -> statement .) ]
+
+
+state 52
+
+    (22) expression_while -> LPAREN program . RPAREN
+    (2) program -> program . statement
+    (4) program -> program . expression
+    (6) program -> program . while_statement
+    (7) statement -> . INT ID EQUAL expression
+    (8) statement -> . STR ID EQUAL expression
+    (9) statement -> . ID EQUAL expression
+    (30) statement -> . RETURN expression
+    (31) statement -> . RETURN statement
+    (32) statement -> . COMENT
+    (14) expression -> . expression PLUS term
+    (15) expression -> . expression PLUS expression
+    (16) expression -> . expression MINUS term
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . LPAREN expression RPAREN
+    (19) expression -> . LPAREN statement RPAREN
+    (27) expression -> . ID
+    (28) expression -> . NUMBER
+    (29) expression -> . STRING
+    (23) while_statement -> . WHILE expression EQUALS expression
+    (24) while_statement -> . WHILE expression EQUALS expression expression_while
+    (25) while_statement -> . WHILE expression NOTEQUAL expression
+    (26) while_statement -> . WHILE expression NOTEQUAL expression expression_while
+
+    RPAREN          shift and go to state 55
+    INT             shift and go to state 5
+    STR             shift and go to state 7
+    ID              shift and go to state 6
+    RETURN          shift and go to state 8
+    COMENT          shift and go to state 9
+    LPAREN          shift and go to state 10
+    NUMBER          shift and go to state 11
+    STRING          shift and go to state 12
+    WHILE           shift and go to state 13
+
+    statement                      shift and go to state 14
+    expression                     shift and go to state 15
+    while_statement                shift and go to state 16
+
+state 53
+
+    (20) expression_while -> LPAREN expression RPAREN .
+
+    INT             reduce using rule 20 (expression_while -> LPAREN expression RPAREN .)
+    STR             reduce using rule 20 (expression_while -> LPAREN expression RPAREN .)
+    ID              reduce using rule 20 (expression_while -> LPAREN expression RPAREN .)
+    RETURN          reduce using rule 20 (expression_while -> LPAREN expression RPAREN .)
+    COMENT          reduce using rule 20 (expression_while -> LPAREN expression RPAREN .)
+    LPAREN          reduce using rule 20 (expression_while -> LPAREN expression RPAREN .)
+    NUMBER          reduce using rule 20 (expression_while -> LPAREN expression RPAREN .)
+    STRING          reduce using rule 20 (expression_while -> LPAREN expression RPAREN .)
+    WHILE           reduce using rule 20 (expression_while -> LPAREN expression RPAREN .)
+    $end            reduce using rule 20 (expression_while -> LPAREN expression RPAREN .)
+    RPAREN          reduce using rule 20 (expression_while -> LPAREN expression RPAREN .)
+
+
+state 54
+
+    (21) expression_while -> LPAREN statement RPAREN .
+
+    INT             reduce using rule 21 (expression_while -> LPAREN statement RPAREN .)
+    STR             reduce using rule 21 (expression_while -> LPAREN statement RPAREN .)
+    ID              reduce using rule 21 (expression_while -> LPAREN statement RPAREN .)
+    RETURN          reduce using rule 21 (expression_while -> LPAREN statement RPAREN .)
+    COMENT          reduce using rule 21 (expression_while -> LPAREN statement RPAREN .)
+    LPAREN          reduce using rule 21 (expression_while -> LPAREN statement RPAREN .)
+    NUMBER          reduce using rule 21 (expression_while -> LPAREN statement RPAREN .)
+    STRING          reduce using rule 21 (expression_while -> LPAREN statement RPAREN .)
+    WHILE           reduce using rule 21 (expression_while -> LPAREN statement RPAREN .)
+    $end            reduce using rule 21 (expression_while -> LPAREN statement RPAREN .)
+    RPAREN          reduce using rule 21 (expression_while -> LPAREN statement RPAREN .)
+
+
+state 55
+
+    (22) expression_while -> LPAREN program RPAREN .
+
+    INT             reduce using rule 22 (expression_while -> LPAREN program RPAREN .)
+    STR             reduce using rule 22 (expression_while -> LPAREN program RPAREN .)
+    ID              reduce using rule 22 (expression_while -> LPAREN program RPAREN .)
+    RETURN          reduce using rule 22 (expression_while -> LPAREN program RPAREN .)
+    COMENT          reduce using rule 22 (expression_while -> LPAREN program RPAREN .)
+    LPAREN          reduce using rule 22 (expression_while -> LPAREN program RPAREN .)
+    NUMBER          reduce using rule 22 (expression_while -> LPAREN program RPAREN .)
+    STRING          reduce using rule 22 (expression_while -> LPAREN program RPAREN .)
+    WHILE           reduce using rule 22 (expression_while -> LPAREN program RPAREN .)
+    $end            reduce using rule 22 (expression_while -> LPAREN program RPAREN .)
+    RPAREN          reduce using rule 22 (expression_while -> LPAREN program RPAREN .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for PLUS in state 22 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 22 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 29 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 29 resolved as shift
+WARNING: shift/reduce conflict for ID in state 32 resolved as shift
+WARNING: shift/reduce conflict for ID in state 33 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 34 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 34 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 37 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 37 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 43 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 43 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 44 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 44 resolved as shift
+WARNING: shift/reduce conflict for LPAREN in state 45 resolved as shift
+WARNING: shift/reduce conflict for LPAREN in state 46 resolved as shift
+WARNING: shift/reduce conflict for RPAREN in state 50 resolved as shift
+WARNING: shift/reduce conflict for RPAREN in state 51 resolved as shift
+WARNING: reduce/reduce conflict in state 29 resolved using rule (term -> expression)
+WARNING: rejected rule (expression -> expression PLUS expression) in state 29
+WARNING: reduce/reduce conflict in state 34 resolved using rule (term -> expression)
+WARNING: rejected rule (expression -> expression MINUS expression) in state 34
+WARNING: Rule (expression -> expression PLUS expression) is never reduced
+WARNING: Rule (expression -> expression MINUS expression) is never reduced
