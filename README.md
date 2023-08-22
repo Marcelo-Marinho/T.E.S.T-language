@@ -50,8 +50,8 @@ EX:
 
 Math:
 - Normal Way
-- \+
-- \-
+- [+]
+- [-]
 - Without / and *
 
 EX:
