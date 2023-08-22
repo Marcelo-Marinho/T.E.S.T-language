@@ -143,9 +143,9 @@ def p_statement_minus(p):
                   | expression MINUS expression
     '''
     try:
-        p[0] = p[1] + p[3]
+        p[0] = p[1] - p[3]
     except:
-        p[0] = str(p[1]) + str(p[3])
+        p[0] = str(p[1]) - str(p[3])
 
 # >------>--> Paren () <--<-------<
 def p_expression_paren(p):
