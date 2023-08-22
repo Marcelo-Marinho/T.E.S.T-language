@@ -69,4 +69,4 @@ EX:
 
 
 
-[:shipit:](https://github.com/Marcelo-Marinho/T.E.S.T-language/edit/main#test-language)	
+[:shipit:](https://github.com/Marcelo-Marinho/T.E.S.T-language/tree/main#test-language)	
