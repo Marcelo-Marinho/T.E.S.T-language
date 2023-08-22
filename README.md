@@ -4,7 +4,9 @@ A test for a custom programming language
 TEST = Texting Emojis Supremacy Translator
 
 ![Ex1](https://github.com/Marcelo-Marinho/T.E.S.T-language/blob/main/img1.PNG)
+<sup>Return 4.0 in first return and the second return, return 3.0</sup>
 ![Ex2](https://github.com/Marcelo-Marinho/T.E.S.T-language/blob/main/img2.PNG)
+<sup>Dark theme is always better</sup>
 
 > [!NOTE]
 > 📌 Is a comment and don't put it below the return
