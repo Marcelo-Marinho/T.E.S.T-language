@@ -18,6 +18,7 @@ TEST = Texting Emojis Supremacy Translator
 Values types:
 - 🔡 = String
 - 🔢 = Number
+  
 EX:
 ```
 📌 String HW
@@ -28,6 +29,7 @@ EX:
 
 Return:
 - ↩
+
 EX:
 ```
 📌 Return "Hello World"
@@ -37,6 +39,7 @@ EX:
 ():
 - 👉 = (
 - 👈 = )
+
 EX:
 ```
 🔡 HW = 👉 "Hello world" 👈 
@@ -50,6 +53,7 @@ Math:
 - +
 - -
 - Without / and *
+
 EX:
 ```
 🔢 Num = 4 - 1
